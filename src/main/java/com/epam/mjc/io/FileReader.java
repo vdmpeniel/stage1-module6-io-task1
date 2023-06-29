@@ -41,13 +41,13 @@ public class FileReader {
                     throw new IllegalArgumentException("Field " + field + "is not allowed.");
             }
         } catch(IllegalArgumentException iae){
-            System.out.println(iae.getMessage());
+            iae.printStackTrace();
         }
     }
 
     private String[] fields = {"Name", "Age", "Email", "Phone"};
     private Profile parseContent(String content){
-        String[] lines = content.split("\r\n");
+        String[] lines = content.split("\r?\n");
 
         Profile profile = new Profile();
         for(String str : lines){
