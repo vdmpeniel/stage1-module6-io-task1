@@ -9,17 +9,17 @@ import java.io.IOException;
 public class FileReader {
 
     private String readFile(File file){
-        String content = "";
+        StringBuilder content = new StringBuilder();
         try(FileInputStream fileInputStream = new FileInputStream(file)){
             int character;
             while((character = fileInputStream.read()) != -1 ){
-                content += (char) character;
+                content.append((char) character);
             }
 
         } catch(IOException ioe){
             return ioe.getMessage();
         }
-        return content;
+        return content.toString();
     }
 
     private void populateField(Profile profile, String field, String value){
